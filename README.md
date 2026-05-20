@@ -4,6 +4,12 @@ Este repositorio contiene un pipeline completo de Machine Learning de punta a pu
 
 La arquitectura final consta de tres modelos independientes combinados a traves de un ensamble de mezcla ponderada optimizado.
 
+Estructura del Repositorio
+- 01_modelo_tabular_lgbm_optuna.ipynb: Procesamiento de datos tabulares, ingenieria de variables con Optuna y entrenamiento de gradiente aumentado.
+- 02_modelo_imagenes_embeddings_clip.ipynb: Extraccion de caracteristicas visuales con CLIP, reduccion de dimensiones mediante PCA y evaluacion del modelo de imagenes.
+- 03_modelo_texto_tfidf_svd.ipynb: Procesamiento del lenguaje natural de los anuncios de Zillow mediante tecnicas de mineria de texto y modelo base.
+- 04_ensemble_multimodal_blending.ipynb: Formulacion del ensamble final a traves de la busqueda de pesos optimos en grilla tridimensional.
+
 ## Descripcion General de la Arquitectura
 
                       ┌───────────────────┐
@@ -62,6 +68,9 @@ La arquitectura final consta de tres modelos independientes combinados a traves 
 
 Para aprovechar los patrones unicos capturados por cada formato estructural de datos, se implemento una busqueda en grilla 3D (Grid Search Blending) optimizada sobre las predicciones Out-of-Fold (OOF).
 
+El ensamble final sincronizo con exito las metricas economicas tabulares con las caracteristicas visuales y textuales no estructuradas, proporcionando una puntuacion de validacion altamente robusta de cara al conjunto de prueba de la competencia.
+
+
 ```python
 # Pesos optimos encontrados por la busqueda en grilla:
 W_TABULAR = 0.98
@@ -69,3 +78,5 @@ W_IMAGES  = 0.01
 W_TEXT    = 0.01
 
 final_blend = (W_TABULAR * oof_lgbm) + (W_IMAGES * oof_cb) + (W_TEXT * oof_xgb)
+
+
