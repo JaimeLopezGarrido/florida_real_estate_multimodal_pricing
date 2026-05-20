@@ -1,4 +1,4 @@
-# Prediccion de Precios de Inmuebles en Florida: Un Enfoque Multimodal
+# Prediccion de Precios de Inmuebles en Florida
 
 Este repositorio contiene un pipeline completo de Machine Learning de punta a punta desarrollado para una competencia de prediccion de precios en el mercado inmobiliario de Florida (dataset de Zillow). El proyecto implementa una estrategia multimodal, aprovechando datos tabulares, imagenes de las propiedades y las descripciones de los listados para predecir los valores de venta utilizando validacion Out-of-Fold (OOF).
 
